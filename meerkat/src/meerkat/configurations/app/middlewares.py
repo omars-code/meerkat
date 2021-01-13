@@ -26,7 +26,7 @@ class HTTPValidationError(falcon.HTTPError):
         ret = super().to_dict(*args, **kwargs)
 
         if self.errors is not None:
-            ret['errors'] = self.errors
+            ret["errors"] = self.errors
 
         return ret
 
@@ -36,9 +36,15 @@ class RequestLoader(Marshmallow):
         try:
             self.process_resource_inner(*args, **kwargs)
         except ValidationError as err:
-            raise HTTPValidationError(status=falcon.status_codes.HTTP_400, errors=err.messages)
+            raise HTTPValidationError(
+                status=falcon.status_codes.HTTP_400, errors=err.messages
+            )
         except ValueError as err:
-            raise falcon.HTTPError(status=falcon.status_codes.HTTP_400, title='Validation Error', description=str(err))
+            raise falcon.HTTPError(
+                status=falcon.status_codes.HTTP_400,
+                title="Validation Error",
+                description=str(err),
+            )
 
     def process_resource_inner(self, req, resp, resource, params):
         # type: (Request, Response, object, dict) -> None
@@ -66,28 +72,27 @@ class RequestLoader(Marshmallow):
             deserialized or decoded
         """
         log.debug(
-            'Marshmallow.process_resource(%s, %s, %s, %s)',
-            req, resp, resource, params
+            "Marshmallow.process_resource(%s, %s, %s, %s)", req, resp, resource, params
         )
         if req.content_length in (None, 0):
             return
 
-        sch = self._get_schema(resource, req.method, 'request')
+        sch = self._get_schema(resource, req.method, "request")
 
         if sch is not None:
             if not isinstance(sch, Schema):
                 raise TypeError(
-                    'The schema and <method>_schema properties of a resource '
-                    'must be instantiated Marshmallow schemas.'
+                    "The schema and <method>_schema properties of a resource "
+                    "must be instantiated Marshmallow schemas."
                 )
 
             try:
                 body = get_stashed_content(req)
                 parsed = self._json.loads(body)
             except UnicodeDecodeError:
-                raise HTTPBadRequest('Body was not encoded as UTF-8')
+                raise HTTPBadRequest("Body was not encoded as UTF-8")
             except self._json.JSONDecodeError:
-                raise HTTPBadRequest('Request must be valid JSON')
+                raise HTTPBadRequest("Request must be valid JSON")
             log.info(sch)
 
             data = sch.load(parsed)
@@ -102,8 +107,8 @@ class RequestLoader(Marshmallow):
             except (ValueError, UnicodeDecodeError):
                 raise HTTPBadRequest(
                     description=(
-                        'Could not decode the request body, either because '
-                        'it was not valid JSON or because it was not encoded '
-                        'as UTF-8.'
+                        "Could not decode the request body, either because "
+                        "it was not valid JSON or because it was not encoded "
+                        "as UTF-8."
                     )
                 )

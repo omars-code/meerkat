@@ -2,12 +2,14 @@ import uuid
 from unittest import mock
 
 from meerkat.domain.post.events import PostCreated
-from meerkat.domain.post.use_cases.add_new_post import AddNewPostUseCase, AddNewPostCommand
+from meerkat.domain.post.use_cases.add_new_post import (
+    AddNewPostUseCase,
+    AddNewPostCommand,
+)
 
 
 class TestCreatePost:
-
-    @mock.patch('meerkat.domain.post.use_cases.add_new_post.uuid.uuid4')
+    @mock.patch("meerkat.domain.post.use_cases.add_new_post.uuid.uuid4")
     def test_can_add_new_post(self, uuid4_mock):
         uuid4_mock.return_value = uuid.uuid4()
         data_provider_mock = mock.Mock()
@@ -15,7 +17,7 @@ class TestCreatePost:
 
         use_case = AddNewPostUseCase(data_provider_mock, event_bus_mock)
 
-        command = AddNewPostCommand(title='title1', body='body1')
+        command = AddNewPostCommand(title="title1", body="body1")
 
         use_case.exec(command)
 

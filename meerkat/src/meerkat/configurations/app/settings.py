@@ -14,7 +14,7 @@ services = [
     DiService(),
     PostService(),
     HealthService(),
-    SwaggerService()
+    SwaggerService(),
 ]
 
 
@@ -22,8 +22,8 @@ class Props(BaseProps):
     DI_PROVIDER = 0
     FALCON = 1
 
-    APP_URL = 'APP_URL'
+    APP_URL = "APP_URL"
 
-    MONGO_HOST = 'MONGO_HOST'
-    MONGO_PORT = 'MONGO_PORT'
-    MONGO_DB = 'MONGO_DB'
+    MONGO_HOST = "MONGO_HOST"
+    MONGO_PORT = "MONGO_PORT"
+    MONGO_DB = "MONGO_DB"

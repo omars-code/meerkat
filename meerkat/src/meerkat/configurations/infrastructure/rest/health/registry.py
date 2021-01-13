@@ -1,6 +1,8 @@
 from meerkat.configurations.app import settings
 from meerkat.configurations.infrastructure.rest.health import HealthCheck
-from meerkat.configurations.infrastructure.rest.health.definitions import HealthConfigurator
+from meerkat.configurations.infrastructure.rest.health.definitions import (
+    HealthConfigurator,
+)
 from registry.services import BootableService, Container
 
 

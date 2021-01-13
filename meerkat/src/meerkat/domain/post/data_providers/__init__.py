@@ -4,28 +4,27 @@ from meerkat.domain.post.value_objects import Id
 
 
 class PostDataProvider(metaclass=abc.ABCMeta):
-
     @abc.abstractmethod
     def save(self, post: Post):
-        """ Saves the post to the data-store
-            Args:
-                post (Post): The post entity
+        """Saves the post to the data-store
+        Args:
+            post (Post): The post entity
 
-            Returns:
-                None
+        Returns:
+            None
         """
         pass
 
     @abc.abstractmethod
     def get(self, id: Id) -> Post:
-        """ Saves the post to the data-store
-            Args:
-                id (Id): post id
+        """Saves the post to the data-store
+        Args:
+            id (Id): post id
 
-            Returns:
-                None
+        Returns:
+            None
 
-            Raises:
-                EntityNotFoundException: if the specified entity cannot be found
+        Raises:
+            EntityNotFoundException: if the specified entity cannot be found
         """
         pass

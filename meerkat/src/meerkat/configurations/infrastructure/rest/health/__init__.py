@@ -15,13 +15,12 @@ class HealthCheck:
     # Handles GET requests
     def on_get(self, req, resp):
         """Get app health
-                ---
-                    summary: Check application health
-                    responses:
-                        200:
-                            description: status response
-                            schema: HealthSchema
+        ---
+            summary: Check application health
+            responses:
+                200:
+                    description: status response
+                    schema: HealthSchema
         """
         resp.status = falcon.HTTP_200
         resp.body = json.dumps({"status": resp.status, "message": "healthy"})
-

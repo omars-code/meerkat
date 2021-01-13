@@ -21,30 +21,32 @@ class PostCollection:
 
     def on_post(self, req, resp):
         """Add new a post
-                ---
-                    tags:
-                        - Posts
-                    summary: Add new post
-                    consumes:
-                        - application/json
-                    produces:
-                        - application/json
-                    parameters:
-                        - in: body
-                          schema: AddNewPostSchema
-                    responses:
-                        201:
-                            description: post added
-                            schema: PostSchema
-                        415:
-                            description: Unsupported Media Type
+        ---
+            tags:
+                - Posts
+            summary: Add new post
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - in: body
+                  schema: AddNewPostSchema
+            responses:
+                201:
+                    description: post added
+                    schema: PostSchema
+                415:
+                    description: Unsupported Media Type
 
         """
         # PostCollection.schema = AddNewPostSchema
         try:
-            request_json = req.context['json']
+            request_json = req.context["json"]
         except KeyError:
-            raise HTTPValidationError(status=falcon.status_codes.HTTP_400, errors=["Empty request body"])
+            raise HTTPValidationError(
+                status=falcon.status_codes.HTTP_400, errors=["Empty request body"]
+            )
 
         command = AddNewPostCommand(**request_json)
 
@@ -62,18 +64,18 @@ class Post:
 
     def on_put(self, req: falcon.Request, resp: falcon.Response, id: str) -> None:
         """
-               ---
-               summary: Publish post
-               tags:
-                   - Posts
-               parameters:
-                   - in: path
-                     name: id
-               produces:
-                   - application/json
-               responses:
-                   204:
-                       description: post published
+        ---
+        summary: Publish post
+        tags:
+            - Posts
+        parameters:
+            - in: path
+              name: id
+        produces:
+            - application/json
+        responses:
+            204:
+                description: post published
         """
 
         command = PublishPostCommand(Id(uuid.UUID(id)))

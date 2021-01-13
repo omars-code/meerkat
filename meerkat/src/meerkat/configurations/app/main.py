@@ -6,11 +6,7 @@ from meerkat.configurations.app.middlewares import RequestLoader
 from injector_provider import InjectorProvider
 from registry.services import Container, Registry
 
-app = falcon.API(middleware=[
-    JSONEnforcer(),
-    EmptyRequestDropper(),
-    RequestLoader()
-])
+app = falcon.API(middleware=[JSONEnforcer(), EmptyRequestDropper(), RequestLoader()])
 
 container = Container()
 

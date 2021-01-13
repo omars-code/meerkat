@@ -20,6 +20,8 @@ class PostMongoRepository(PostDataProvider):
     def get(self, id: Id) -> Post:
         posts = PostDocument.objects(id=id.value)
         if posts.count() < 1:
-            raise EntityNotFoundException('Cannot find document with id #{}'.format(str(id)))
+            raise EntityNotFoundException(
+                "Cannot find document with id #{}".format(str(id))
+            )
 
         return self.transformer.transform_to_domain_object(next(posts))

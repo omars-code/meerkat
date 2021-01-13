@@ -17,20 +17,23 @@ class SwaggerResource:
         from meerkat.configurations.app.settings import Props
         from meerkat.configurations.app.main import app
         from meerkat.configurations.app.main import container
+
         # todo: should be moved to env vars
-        self.spec = APISpec(title='meerkat',
-                            version='1.0.0',
-                            openapi_version='2.0',
-                            plugins=[
-                                FalconPlugin(app),
-                                MarshmallowPlugin(),
-                            ])
+        self.spec = APISpec(
+            title="meerkat",
+            version="1.0.0",
+            openapi_version="2.0",
+            plugins=[
+                FalconPlugin(app),
+                MarshmallowPlugin(),
+            ],
+        )
         injector = container.get(Props.DI_PROVIDER).get_injector()
 
-        self.spec.components.schema('Health', schema=injector.get(HealthSchema))
+        self.spec.components.schema("Health", schema=injector.get(HealthSchema))
         self.spec.path(resource=injector.get(HealthCheck))
 
-        self.spec.components.schema('Post', schema=injector.get(PostSchema))
+        self.spec.components.schema("Post", schema=injector.get(PostSchema))
 
         self.spec.path(resource=injector.get(PostCollection))
         self.spec.path(resource=injector.get(Post))

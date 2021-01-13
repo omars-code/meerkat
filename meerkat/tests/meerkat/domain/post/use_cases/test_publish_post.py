@@ -9,16 +9,16 @@ from meerkat.domain.post.value_objects import Title, Body, Id
 
 
 class TestCreatePost:
-
-    @mock.patch('meerkat.domain.post.use_cases.add_new_post.uuid.uuid4')
+    @mock.patch("meerkat.domain.post.use_cases.add_new_post.uuid.uuid4")
     def test_can_publish_post(self, uuid4_mock):
         id = Id(uuid.uuid4())
-        post = Post.create(id, Title('post title'), Body('post body'))
+        post = Post.create(id, Title("post title"), Body("post body"))
         data_provider_mock = mock.Mock()
         event_bus_mock = mock.Mock()
 
         def get(id: Id):
             return post
+
         data_provider_mock.get.side_effect = get
 
         use_case = PublishPostUseCase(data_provider_mock, event_bus_mock)

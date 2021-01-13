@@ -19,10 +19,10 @@ class Post:
 
     def publish(self):
         if not self.title.is_valid():
-            raise PublishingFailedException('title is invalid')
+            raise PublishingFailedException("title is invalid")
 
         if not self.id.is_valid():
-            raise PublishingFailedException('Id is invalid')
+            raise PublishingFailedException("Id is invalid")
 
         self.published = True
 
@@ -30,6 +30,6 @@ class Post:
         return self.published
 
 
-'''
+"""
 todo slugify title
-'''
+"""

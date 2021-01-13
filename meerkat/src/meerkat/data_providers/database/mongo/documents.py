@@ -7,5 +7,3 @@ class PostDocument(Document):
     title = StringField(max_length=512, required=True)
     body = StringField(max_length=1024, required=True)
     published = BooleanField()
-
-

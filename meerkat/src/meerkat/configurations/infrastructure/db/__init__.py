@@ -3,7 +3,6 @@ from mongoengine import connect
 
 
 class DataBaseService(BootableService):
-
     def boot(self, container: Container):
         from meerkat.configurations.app.settings import Props
 
@@ -12,4 +11,3 @@ class DataBaseService(BootableService):
         db = container.get(Props.MONGO_DB)
 
         connect(db, host=host, port=port)
-
