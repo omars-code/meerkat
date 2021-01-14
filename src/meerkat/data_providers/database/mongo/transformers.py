@@ -14,7 +14,8 @@ class PostDocumentTransformer:
 
     def transform_to_domain_object(self, post_document: PostDocument) -> Post:
         post = Post.create(
-            Id(post_document.id), Title(post_document.title), Body(post_document.body)
+            Id(post_document.id), Title(
+                post_document.title), Body(post_document.body)
         )
         post.published = post_document.published
         return post

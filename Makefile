@@ -28,6 +28,12 @@ logs:
 local:
 	pipenv sync
 
+pep8:
+	autopep8 --in-place --recursive .
+
+flake8:
+	pipenv run flake8
+
 # app
 freeze:
 	pipenv run pipenv_to_requirements -f

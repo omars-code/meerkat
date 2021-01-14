@@ -44,7 +44,8 @@ class PostCollection:
             request_json = req.context["json"]
         except KeyError:
             raise HTTPValidationError(
-                status=falcon.status_codes.HTTP_400, errors=["Empty request body"]
+                status=falcon.status_codes.HTTP_400, errors=[
+                    "Empty request body"]
             )
 
         command = AddNewPostCommand(**request_json)
@@ -61,7 +62,8 @@ class Post:
     def __init__(self, publish_post: PublishPostUseCase):
         self.publish_post_usecase = publish_post
 
-    def on_put(self, req: falcon.Request, resp: falcon.Response, id: str) -> None:
+    def on_put(self, req: falcon.Request,
+               resp: falcon.Response, id: str) -> None:
         """
         ---
         summary: Publish post

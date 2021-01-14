@@ -14,7 +14,8 @@ class SwaggerService(BootableService):
         page_title = "Swagger UI"
         favicon_url = "https://falconframework.org/favicon-32x32.png"
         swagger_ui_url = "/v1/docs"  # without trailing slash
-        schema_url = "{}/v1/swagger.json".format(container.get(settings.Props.APP_URL))
+        schema_url = "{}/v1/swagger.json".format(
+            container.get(settings.Props.APP_URL))
 
         register_swaggerui_app(
             falcon,

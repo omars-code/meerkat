@@ -20,7 +20,8 @@ class AddNewPostUseCase:
         self.event_bus = event_bus
 
     def exec(self, command: AddNewPostCommand) -> Post:
-        post = Post.create(Id(uuid.uuid4()), Title(command.title), Body(command.body))
+        post = Post.create(Id(uuid.uuid4()), Title(
+            command.title), Body(command.body))
         self.data_provider.save(post)
         self.event_bus.publish(PostCreated(post))
         return post
