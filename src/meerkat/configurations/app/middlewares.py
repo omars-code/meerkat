@@ -47,7 +47,6 @@ class RequestLoader(Marshmallow):
             )
 
     def process_resource_inner(self, req, resp, resource, params):
-        # type: (Request, Response, object, dict) -> None
         """Deserialize request body with any resource-specific schemas
 
         Store deserialized data on the ``req.context`` object
