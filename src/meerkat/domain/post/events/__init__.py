@@ -1,2 +1,2 @@
-from .post_created import PostCreated
-from .post_published import PostPublished
+from .post_created import PostCreated # NOQA
+from .post_published import PostPublished # NOQA

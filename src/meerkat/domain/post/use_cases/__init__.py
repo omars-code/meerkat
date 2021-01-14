@@ -1,2 +1,2 @@
-from .add_new_post import AddNewPostUseCase
-from .publish_post import PublishPostUseCase
+from .add_new_post import AddNewPostUseCase # NOQA
+from .publish_post import PublishPostUseCase # NOQA

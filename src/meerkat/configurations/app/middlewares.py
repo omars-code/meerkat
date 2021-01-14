@@ -1,7 +1,7 @@
 import logging
 
 import falcon
-from falcon import HTTPUnprocessableEntity, HTTPBadRequest
+from falcon import HTTPBadRequest
 from falcon_marshmallow import Marshmallow
 from falcon_marshmallow.middleware import get_stashed_content
 from marshmallow import ValidationError, Schema
