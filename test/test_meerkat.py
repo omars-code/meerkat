@@ -1,4 +1,4 @@
-from meerkat.meerkat import fib
+from meerkat import fib
 
 
 def test_fib() -> None:

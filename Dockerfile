@@ -1,38 +1,33 @@
-FROM python:3.6-slim AS base
+FROM python:3.9.1-buster
 
-# Setup env
-ENV LANG C.UTF-8
-ENV LC_ALL C.UTF-8
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONFAULTHANDLER 1
+ENV PYTHONUNBUFFERED 1
 
+RUN apt-get update && apt-get install -y automake build-essential libffi-dev libssl-dev nodejs npm protobuf-compiler git zsh postgresql util-linux && \
+    rm -f /tmp/*
 
-FROM base AS python-deps
+RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-# Install pipenv and compilation dependencies
-RUN pip install pipenv
-RUN apt-get update && apt-get install -y --no-install-recommends gcc
+RUN npm config set unsafe-perm true
 
-# Install python dependencies in /.venv
-COPY Pipfile .
-COPY Pipfile.lock .
-RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
+RUN npm i -g nodemon yarn
+RUN pip install --upgrade pip pipenv
 
+# set working directory
+RUN mkdir -p /code/packages/meerkat
+WORKDIR /code/packages/meerkat
 
-FROM base AS runtime
+# add requirements
+COPY ./requirements-dev.txt /code/packages/meerkat/requirements-dev.txt
+COPY ./requirements.txt /code/packages/meerkat/requirements.txt
 
-# Copy virtual env from python-deps stage
-COPY --from=python-deps /.venv /.venv
-ENV PATH="/.venv/bin:$PATH"
+# install requirements
+RUN pip install -r requirements.txt
+RUN pip install -r requirements-dev.txt
 
-# Create and switch to a new user
-RUN useradd --create-home appuser
-WORKDIR /home/appuser
-USER appuser
+# add entrypoint.sh
+COPY ./.docker/entrypoint.sh /code/packages/meerkat/.docker/entrypoint.sh
 
-# Install application into container
-COPY . .
+EXPOSE 8000
 
-# Run the executable
-ENTRYPOINT ["python", "-m", "meerkat"]
-CMD ["10"]
+# run server
+CMD ["sh", "/code/packages/meerkat/.docker/entrypoint.sh"]
