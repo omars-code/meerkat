@@ -33,6 +33,7 @@ flake8 = "*"
 isort = "*"
 pre-commit = "*"
 autopep8 = "*"
+typing-extensions = "*"
 
 [requires]
 python_version = "3.9"
