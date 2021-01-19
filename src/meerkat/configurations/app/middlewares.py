@@ -71,11 +71,8 @@ class RequestLoader(Marshmallow):
             deserialized or decoded
         """
         log.debug(
-            "Marshmallow.process_resource(%s, %s, %s, %s)",
-            req,
-            resp,
-            resource,
-            params)
+            "Marshmallow.process_resource(%s, %s, %s, %s)", req, resp, resource, params
+        )
         if req.content_length in (None, 0):
             return
 

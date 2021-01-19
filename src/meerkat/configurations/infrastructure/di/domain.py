@@ -10,14 +10,12 @@ class UseCasesConfigurator(Module):
     @provider
     def add_new(self) -> AddNewPostUseCase:
         return AddNewPostUseCase(
-            self.__injector__.get(
-                PostMongoRepository), self.__injector__.get(EventBus)
+            self.__injector__.get(PostMongoRepository), self.__injector__.get(EventBus)
         )
 
     @singleton
     @provider
     def publish(self) -> PublishPostUseCase:
         return PublishPostUseCase(
-            self.__injector__.get(
-                PostMongoRepository), self.__injector__.get(EventBus)
+            self.__injector__.get(PostMongoRepository), self.__injector__.get(EventBus)
         )

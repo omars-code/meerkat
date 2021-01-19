@@ -15,8 +15,7 @@ class PostSchema(Schema):
     def from_domain_object(cls, post: Post):
         object = cls()
         return object.load(
-            {"id": str(post.id), "title": str(
-                post.title), "body": str(post.body)}
+            {"id": str(post.id), "title": str(post.title), "body": str(post.body)}
         )
 
 

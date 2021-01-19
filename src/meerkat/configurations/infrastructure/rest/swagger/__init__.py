@@ -30,8 +30,7 @@ class SwaggerResource:
         )
         injector = container.get(Props.DI_PROVIDER).get_injector()
 
-        self.spec.components.schema(
-            "Health", schema=injector.get(HealthSchema))
+        self.spec.components.schema("Health", schema=injector.get(HealthSchema))
         self.spec.path(resource=injector.get(HealthCheck))
 
         self.spec.components.schema("Post", schema=injector.get(PostSchema))

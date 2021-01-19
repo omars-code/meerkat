@@ -1,1 +1,1 @@
-from .post import Post # NOQA
+from .post import Post  # NOQA

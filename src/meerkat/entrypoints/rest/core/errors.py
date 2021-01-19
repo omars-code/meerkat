@@ -11,8 +11,7 @@ except ImportError:
 
 OK = {"status": falcon.HTTP_200, "code": 200}
 
-ERR_UNKNOWN = {"status": falcon.HTTP_500,
-               "code": 500, "title": "Unknown Error"}
+ERR_UNKNOWN = {"status": falcon.HTTP_500, "code": 500, "title": "Unknown Error"}
 
 ERR_AUTH_REQUIRED = {
     "status": falcon.HTTP_401,
@@ -32,8 +31,7 @@ ERR_DATABASE_ROLLBACK = {
     "title": "Database Rollback Error",
 }
 
-ERR_NOT_SUPPORTED = {"status": falcon.HTTP_404,
-                     "code": 10, "title": "Not Supported"}
+ERR_NOT_SUPPORTED = {"status": falcon.HTTP_404, "code": 10, "title": "Not Supported"}
 
 
 ERR_USER_NOT_EXISTS = {

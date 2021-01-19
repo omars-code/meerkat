@@ -33,8 +33,7 @@ version = get_variable_from_file("_version.py", "__version__")
 
 with open("requirements.txt") as f:
     required = f.read().splitlines()
-    required = [
-        requirement for requirement in required if "http" not in requirement]
+    required = [requirement for requirement in required if "http" not in requirement]
 
 setup(
     name=package,
@@ -54,12 +53,9 @@ setup(
     ],
     install_requires=required,
     packages=packages,
-    package_dir={
-        "": source_path},
+    package_dir={"": source_path},
     include_package_data=True,
-    package_data={
-        package: []},
+    package_data={package: []},
     license="AGPL-3.0-or-later",
-    extras_require={
-        "test": ["pytest"]},
+    extras_require={"test": ["pytest"]},
 )

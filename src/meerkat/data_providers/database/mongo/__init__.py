@@ -1,2 +1,2 @@
 # public interfaces
-from .repositories import PostMongoRepository # NOQA
+from .repositories import PostMongoRepository  # NOQA
