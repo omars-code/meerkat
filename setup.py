@@ -39,8 +39,8 @@ setup(
     name=package,
     version=version,
     python_requires=">=3.6",
-    author="PyMedPhys Contributors",
-    author_email="developers@pymedphys.com",
+    author="Bookla Contributors",
+    author_email="hello@bookla.io",
     description="",
     classifiers=[
         "Development Status :: 4 - Beta",
