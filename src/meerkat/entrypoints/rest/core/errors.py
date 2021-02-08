@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import json
+from typing import Type
+
 import falcon
 
-try:
-    from collections import OrderedDict
-except ImportError:
-    OrderedDict = dict
+# try:
+#     from collections import OrderedDict
+# except ImportError:
+#     OrderedDict: Type[OrderedDict[Any, Any]] = dict
 
 
 OK = {"status": falcon.HTTP_200, "code": 200}
