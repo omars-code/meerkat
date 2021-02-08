@@ -1,15 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import json
-from typing import Type
+from typing import OrderedDict
 
 import falcon
-
-# try:
-#     from collections import OrderedDict
-# except ImportError:
-#     OrderedDict: Type[OrderedDict[Any, Any]] = dict
-
 
 OK = {"status": falcon.HTTP_200, "code": 200}
 
@@ -34,7 +28,6 @@ ERR_DATABASE_ROLLBACK = {
 }
 
 ERR_NOT_SUPPORTED = {"status": falcon.HTTP_404, "code": 10, "title": "Not Supported"}
-
 
 ERR_USER_NOT_EXISTS = {
     "status": falcon.HTTP_404,
