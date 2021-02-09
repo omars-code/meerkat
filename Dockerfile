@@ -13,21 +13,21 @@ RUN npm i -g nodemon yarn
 RUN pip install --upgrade pip pipenv
 
 # set working directory
-RUN mkdir -p /code/packages/meerkat
-WORKDIR /code/packages/meerkat
+RUN mkdir -p /code/
+WORKDIR /code/
 
 # add requirements
-COPY ./requirements-dev.txt /code/packages/meerkat/requirements-dev.txt
-COPY ./requirements.txt /code/packages/meerkat/requirements.txt
+COPY ./requirements-dev.txt /code/requirements-dev.txt
+COPY ./requirements.txt /code/requirements.txt
 
 # install requirements
 RUN pip install -r requirements.txt
 RUN pip install -r requirements-dev.txt
 
 # add entrypoint.sh
-COPY ./.docker/entrypoint.sh /code/packages/meerkat/.docker/entrypoint.sh
+COPY ./.docker/entrypoint.sh /code/.docker/entrypoint.sh
 
 EXPOSE 8000
 
 # run server
-CMD ["sh", "/code/packages/meerkat/.docker/entrypoint.sh"]
+CMD ["sh", "/code/.docker/entrypoint.sh"]
