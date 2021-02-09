@@ -14,17 +14,16 @@ RUN mkdir -p /code/
 WORKDIR /code/
 
 # add requirements
-COPY ./requirements-dev.txt /code/requirements-dev.txt
-COPY ./requirements.txt /code/requirements.txt
+COPY requirements-dev.txt requirements.txt /code/
 
 # install requirements
 RUN pip install -r requirements.txt
 RUN pip install -r requirements-dev.txt
 
 # add entrypoint.sh
-COPY ./.docker/entrypoint.sh /code/.docker/entrypoint.sh
+COPY .docker/entrypoint.sh /code/entrypoint.sh
 
 EXPOSE 8000
 
 # run server
-CMD ["sh", "/code/.docker/entrypoint.sh"]
+CMD ["sh", "/code/entrypoint.sh"]
