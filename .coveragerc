@@ -1,6 +1,8 @@
 [run]
-source = meerkat
-omit = meerkat/__main__.py
+source = src/meerkat
+omit =
+    src/meerkat/configurations/*
+    src/meerkat/entrypoints/*
 
 [report]
 exclude_lines =
@@ -18,3 +20,4 @@ exclude_lines =
     # Don't complain if non-runnable code isn't run:
     if 0:
     if __name__ == .__main__.:
+
