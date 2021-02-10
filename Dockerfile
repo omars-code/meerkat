@@ -14,16 +14,19 @@ RUN mkdir -p /code/
 WORKDIR /code/
 
 # add requirements
-COPY requirements-dev.txt requirements.txt /code/
+COPY Pipfile Pipfile.lock /code/
 
+RUN pipenv --python 3
+
+RUN pipenv install --dev --deploy
 # install requirements
-RUN pip install -r requirements.txt
-RUN pip install -r requirements-dev.txt
+#RUN pip install -r requirements.txt
+#RUN pip install -r requirements-dev.txt
 
 # add entrypoint.sh
-COPY .docker/entrypoint.sh /code/entrypoint.sh
+#COPY .docker/entrypoint.sh /code/
 
 EXPOSE 8000
 
 # run server
-CMD ["sh", "/code/entrypoint.sh"]
+CMD ["sh", "/code/.docker/entrypoint.sh"]
