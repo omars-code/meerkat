@@ -1,0 +1,39 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+psycopg2 = "*"
+cython = "*"
+falcon = "*"
+gunicorn = "*"
+bcrypt = "*"
+gevent = "*"
+apispec = "*"
+marshmallow = "*"
+falcon-apispec = "*"
+falcon-swagger-ui = "*"
+injector = "*"
+pipenv-to-requirements = "*"
+falcon-marshmallow = "*"
+mongoengine = "*"
+buslane = "*"
+
+[dev-packages]
+pytest = "*"
+pytest-flakes = "*"
+pytest-isort = "*"
+pytest-cov = "*"
+pytest-pycodestyle = "*"
+mypy = "*"
+pipenv-to-requirements = "*"
+black = "==20.8b1"
+flake8 = "*"
+isort = "*"
+pre-commit = "*"
+autopep8 = "*"
+typing-extensions = "*"
+
+[requires]
+python_version = "3.9"
