@@ -35,7 +35,3 @@ jobs:
 
       - name: Build docker image
         run: docker build . -t meerkat:test
-
-      - name: Smoke test docker image
-        run: |
-          docker run --rm meerkat:test 10
