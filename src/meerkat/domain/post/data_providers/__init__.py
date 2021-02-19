@@ -1,6 +1,7 @@
 import abc
+
+from meerkat.domain.common.value_objects import Id
 from meerkat.domain.post.entities.post import Post
-from meerkat.domain.post.value_objects import Id
 
 
 class PostDataProvider(metaclass=abc.ABCMeta):

@@ -1,11 +1,12 @@
 import uuid
-from buslane.events import EventBus
 from dataclasses import dataclass
 
+from buslane.events import EventBus
+
+from meerkat.domain.common.value_objects import Body, Id, Title
 from meerkat.domain.post.data_providers import PostDataProvider
 from meerkat.domain.post.entities import Post
 from meerkat.domain.post.events import PostCreated
-from meerkat.domain.post.value_objects import Title, Body, Id
 
 
 @dataclass(frozen=True)

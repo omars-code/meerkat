@@ -1,16 +1,15 @@
 import uuid
 from unittest import mock
 
+from meerkat.domain.common.value_objects import Body, Id, Title
 from meerkat.domain.post.entities import Post
 from meerkat.domain.post.events import PostPublished
 from meerkat.domain.post.use_cases import PublishPostUseCase
 from meerkat.domain.post.use_cases.publish_post import PublishPostCommand
-from meerkat.domain.post.value_objects import Title, Body, Id
 
 
 class TestCreatePost:
-    @mock.patch("meerkat.domain.post.use_cases.add_new_post.uuid.uuid4")
-    def test_can_publish_post(self, uuid4_mock):
+    def test_can_publish_post(self):
         id = Id(uuid.uuid4())
         post = Post.create(id, Title("post title"), Body("post body"))
         data_provider_mock = mock.Mock()

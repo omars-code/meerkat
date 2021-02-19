@@ -1,6 +1,6 @@
 from meerkat.data_providers.database.mongo.documents import PostDocument
+from meerkat.domain.common.value_objects import Body, Id, Title
 from meerkat.domain.post.entities import Post
-from meerkat.domain.post.value_objects import Id, Title, Body
 
 
 class PostDocumentTransformer:

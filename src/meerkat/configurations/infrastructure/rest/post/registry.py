@@ -1,7 +1,8 @@
-from meerkat.configurations.app import settings
-from meerkat.entrypoints.rest.post.definitions import PostConfigurator
-from meerkat.entrypoints.rest.post.resources import PostCollection, Post
 from registry.services import BootableService, Container
+
+from meerkat.configurations.app import settings
+from meerkat.configurations.infrastructure.rest.post.definitions import PostConfigurator
+from meerkat.entrypoints.rest.post.resources import Post, PostCollection
 
 
 class PostService(BootableService):

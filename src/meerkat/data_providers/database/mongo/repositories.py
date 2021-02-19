@@ -1,11 +1,11 @@
 from injector import inject
 
-from meerkat.domain.post.data_providers import PostDataProvider
-from meerkat.domain.post.entities import Post
-from meerkat.domain.post.value_objects import Id
-from meerkat.domain.post.data_providers.exceptions import EntityNotFoundException
-from meerkat.data_providers.database.mongo.transformers import PostDocumentTransformer
 from meerkat.data_providers.database.mongo.documents import PostDocument
+from meerkat.data_providers.database.mongo.transformers import PostDocumentTransformer
+from meerkat.domain.common.value_objects import Id
+from meerkat.domain.post.data_providers import PostDataProvider
+from meerkat.domain.post.data_providers.exceptions import EntityNotFoundException
+from meerkat.domain.post.entities import Post
 
 
 class PostMongoRepository(PostDataProvider):

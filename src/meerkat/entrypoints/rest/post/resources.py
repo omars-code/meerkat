@@ -4,11 +4,11 @@ import uuid
 import falcon
 
 from meerkat.configurations.app.middlewares import HTTPValidationError
+from meerkat.domain.common.value_objects import Id
 from meerkat.domain.post.use_cases import AddNewPostUseCase, PublishPostUseCase
 from meerkat.domain.post.use_cases.add_new_post import AddNewPostCommand
 from meerkat.domain.post.use_cases.publish_post import PublishPostCommand
-from meerkat.domain.post.value_objects import Id
-from meerkat.entrypoints.rest.post.schemas import PostSchema, AddNewPostSchema
+from meerkat.entrypoints.rest.post.schemas import AddNewPostSchema, PostSchema
 
 
 class PostCollection:

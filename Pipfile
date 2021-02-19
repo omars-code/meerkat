@@ -19,6 +19,8 @@ pipenv-to-requirements = "*"
 falcon-marshmallow = "*"
 mongoengine = "*"
 buslane = "*"
+injector-provider = {editable = true, ref = "master", git = "git@github.com:bookla-foundation/injector_provider.git"}
+service-registry = {editable = true, ref = "master", git = "git@github.com:bookla-foundation/service_registry.git"}
 
 [dev-packages]
 pytest = "*"
@@ -34,6 +36,7 @@ isort = "*"
 pre-commit = "*"
 autopep8 = "*"
 typing-extensions = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.9"
