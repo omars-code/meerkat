@@ -20,7 +20,7 @@ falcon-marshmallow = "*"
 mongoengine = "*"
 buslane = "*"
 injector-provider = {editable = true, ref = "master", git = "git@github.com:bookla-foundation/injector_provider.git"}
-service-registry = {editable = true, ref = "master", git = "git@github.com:bookla-foundation/service_registry.git"}
+serviceregistry = {editable = true, ref = "master", git = "https://github.com/0mars/serviceregistry.git"}
 
 [dev-packages]
 pytest = "*"
