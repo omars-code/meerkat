@@ -19,8 +19,8 @@ pipenv-to-requirements = "*"
 falcon-marshmallow = "*"
 mongoengine = "*"
 buslane = "*"
-injector-provider = {editable = true, ref = "master", git = "git@github.com:bookla-foundation/injector_provider.git"}
 serviceregistry = {editable = true, ref = "master", git = "https://github.com/0mars/serviceregistry.git"}
+injector-provider = {editable = true, ref = "master", git = "https://github.com/bookla-foundation/injector_provider.git"}
 
 [dev-packages]
 pytest = "*"

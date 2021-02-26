@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4482c18a21fc641334160de5343203fff48db045ca42937f38b8128777ad4698"
+            "sha256": "1c24d557b6ff25282e1805d105f2cba3038d003d444b08b83703b0d1b8a7b87d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -296,7 +296,7 @@
         },
         "injector-provider": {
             "editable": true,
-            "git": "ssh://git@github.com/bookla-foundation/injector_provider.git",
+            "git": "https://github.com/bookla-foundation/injector_provider.git",
             "ref": "f115c60a24e5039a5cbed9927d73a9d7f74e21d4"
         },
         "jinja2": {
