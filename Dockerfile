@@ -17,7 +17,7 @@ WORKDIR /code/
 COPY Pipfile Pipfile.lock /code/
 
 RUN pipenv --python 3
-
+RUN mkdir -p ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 RUN pipenv install --dev --deploy
 # install requirements
 #RUN pip install -r requirements.txt

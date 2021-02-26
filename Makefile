@@ -49,4 +49,4 @@ test:
 	pipenv run pytest --cov --cov-report html
 
 watch:
-	eval watchexec -r -e 'py' -i './meerkat' "docker-compose up"
+	eval watchexec -r -e 'py' -i './src/meerkat' "docker-compose up"

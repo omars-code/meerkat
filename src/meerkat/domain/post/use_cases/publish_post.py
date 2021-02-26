@@ -1,9 +1,10 @@
-from buslane.events import EventBus
 from dataclasses import dataclass
 
+from buslane.events import EventBus
+
+from meerkat.domain.common.value_objects import Id
 from meerkat.domain.post.data_providers import PostDataProvider
 from meerkat.domain.post.events import PostPublished
-from meerkat.domain.post.value_objects import Id
 
 
 @dataclass(frozen=True)

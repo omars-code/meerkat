@@ -1,7 +1,7 @@
-from injector import singleton, provider, Module
+from injector import Module, provider, singleton
 
 from meerkat.domain.post.use_cases import AddNewPostUseCase, PublishPostUseCase
-from meerkat.entrypoints.rest.post.resources import PostCollection, Post
+from meerkat.entrypoints.rest.post.resources import Post, PostCollection
 
 
 class PostConfigurator(Module):
