@@ -1,11 +1,9 @@
-FROM python:3.9.1-buster
+FROM python:3.8.11-slim-buster
 
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && apt-get install -y automake build-essential libffi-dev libssl-dev protobuf-compiler git zsh util-linux && \
+RUN apt-get update && apt-get install -y automake git zsh util-linux && \
     rm -f /tmp/*
-
-RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 RUN pip install --upgrade pip pipenv
 
@@ -19,9 +17,6 @@ COPY Pipfile Pipfile.lock /code/
 RUN pipenv --python 3
 RUN mkdir -p ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 RUN pipenv install --dev --deploy
-# install requirements
-#RUN pip install -r requirements.txt
-#RUN pip install -r requirements-dev.txt
 
 # add entrypoint.sh
 #COPY .docker/entrypoint.sh /code/
