@@ -6,12 +6,8 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./
-    environment:
-      - ENVIRONMENT=DEVELOPMENT
-      - APP_URL=http://localhost:8021
-      - MONGO_HOST=skel_db
-      - MONGO_PORT=27017
-      - MONGO_DB=meerkat
+    env_file:
+      - .env
     ports:
       - "8000:8000"
     depends_on:
@@ -34,11 +30,8 @@ services:
       - ./.docker/logs/nginx:/var/log/nginx:cached
     ports:
       - "8021:80"
-    environment:
-      - NGINX_HOST=localhost
-      - NGINX_PORT=80
-      - PROXY_HOST=meerkat
-      - PROXY_PORT=8000
+    env_file:
+      - .env
     depends_on:
       - meerkat
     command: /bin/bash -c "envsubst < /etc/nginx/conf.d/site.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
@@ -52,5 +45,5 @@ services:
       - .data/db:/usr/data/db
     ports:
       - 27017:27017
-    command: mongod --smallfiles --logpath=/dev/null # --quiet
+    command: mongod --logpath=/dev/null # --quiet
 
