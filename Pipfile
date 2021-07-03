@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-psycopg2 = "*"
 cython = "*"
 falcon = "*"
 gunicorn = "*"
@@ -39,4 +38,4 @@ typing-extensions = "*"
 coverage = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.8"
