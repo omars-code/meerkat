@@ -2,7 +2,7 @@ FROM python:3.8.11-slim-buster
 
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && apt-get install -y automake git zsh util-linux && \
+RUN apt-get update && apt-get install -y automake make git zsh util-linux && \
     rm -f /tmp/*
 
 RUN pip install --upgrade pip pipenv
@@ -19,9 +19,9 @@ RUN mkdir -p ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 RUN pipenv install --dev --deploy
 
 # add entrypoint.sh
-#COPY .docker/entrypoint.sh /code/
+COPY ./.docker/entrypoint.sh /code/
 
 EXPOSE 8000
 
 # run server
-CMD ["sh", "/code/.docker/entrypoint.sh"]
+CMD ["sh", "/code/entrypoint.sh"]
