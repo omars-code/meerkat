@@ -1,4 +1,4 @@
-from registry.services import BootableService, Container
+from serviceregistry.services import BootableService, Container
 from mongoengine import connect
 
 

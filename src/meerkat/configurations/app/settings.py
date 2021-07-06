@@ -1,4 +1,4 @@
-from registry.services import Props as BaseProps
+from serviceregistry.services import Props as BaseProps
 
 from meerkat.configurations.infrastructure.db import DataBaseService
 from meerkat.configurations.infrastructure.di.service import DiService

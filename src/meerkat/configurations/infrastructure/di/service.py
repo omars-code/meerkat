@@ -1,6 +1,6 @@
 from meerkat.configurations.app import settings
 from meerkat.configurations.infrastructure.di.domain import UseCasesConfigurator
-from registry.services import BootableService, Container
+from serviceregistry.services import BootableService, Container
 
 
 class DiService(BootableService):

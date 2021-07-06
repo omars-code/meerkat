@@ -1,4 +1,4 @@
-from registry.services import BootableService, Container
+from serviceregistry.services import BootableService, Container
 
 from meerkat.configurations.app import settings
 from meerkat.configurations.infrastructure.rest.post.definitions import PostConfigurator

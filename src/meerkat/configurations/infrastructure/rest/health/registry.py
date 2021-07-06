@@ -3,7 +3,7 @@ from meerkat.configurations.infrastructure.rest.health import HealthCheck
 from meerkat.configurations.infrastructure.rest.health.definitions import (
     HealthConfigurator,
 )
-from registry.services import BootableService, Container
+from serviceregistry.services import BootableService, Container
 
 
 class HealthService(BootableService):

@@ -1,4 +1,4 @@
-from registry.services import BootableService, Container
+from serviceregistry.services import BootableService, Container
 from falcon_swagger_ui import register_swaggerui_app
 
 

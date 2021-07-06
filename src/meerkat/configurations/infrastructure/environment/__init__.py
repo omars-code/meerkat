@@ -1,6 +1,6 @@
 import os
 
-from registry.services import BootableService, Container
+from serviceregistry.services import BootableService, Container
 
 
 class EnvironmentService(BootableService):

@@ -1,14 +1,14 @@
 import falcon
 from falcon_marshmallow import EmptyRequestDropper, JSONEnforcer
 from injector_provider import InjectorProvider
-from registry.services import Container, Registry
+from serviceregistry.services import Container, Registry
 
 from meerkat.configurations.app import settings
 from meerkat.configurations.app.middlewares import RequestLoader
 
 
 def create_app():
-    return falcon.API(
+    return falcon.App(
         middleware=[JSONEnforcer(), EmptyRequestDropper(), RequestLoader()]
     )
 
