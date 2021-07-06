@@ -43,7 +43,7 @@ install:
 	pip install -r requirements-dev.txt
 
 run:
-	@cd src; gunicorn -b 0.0.0.0:8000 meerkat.configurations.app.main:app -w 1 -k gevent --reload && echo "success!" || { echo "Crashed!"; exit 0; }
+	@cd src; pipenv run gunicorn -b 0.0.0.0:8000 meerkat.configurations.app.main:app -w 1 -k gevent --reload && echo "success!" || { echo "Crashed!"; exit 0; }
 
 test:
 	pipenv run pytest --cov --cov-report html
