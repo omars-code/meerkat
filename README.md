@@ -33,11 +33,33 @@ But what does it mean ?
 Now let's get started.
 
 Installing the precommit/prepush hooks
+## API docs
 
-## Setup
+http://0.0.0.0:8021/v1/docs
+
+## new service [how-to]
+Write
+- AggregateRoot
+- data provider definitions [domain]
+- data provider concrete implementation
+- usecase
+- Rest
+  - definitions 
+  - schemas
+- configurations/di
+- configurations/rest/aggregateRoot
+
+## Running the app
+
+```shell
+make start
+```
+
+## Local Development Setup
+
 ```sh
 # Install dependencies
-pipenv install --dev
+pipenv install --dev --deploy
 
 # Setup pre-commit and pre-push hooks
 pipenv run pre-commit install -t pre-commit
@@ -50,4 +72,5 @@ make test
 ```
 coverage found at: htmlcov/index.html
 ## Credits
+- Bookla Foundation's Team
 - [sourcery-ai/python-best-practices-cookiecutter](https://github.com/sourcery-ai/python-best-practices-cookiecutter) project template. 
