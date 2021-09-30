@@ -1,6 +1,6 @@
 import falcon
 from falcon_marshmallow import EmptyRequestDropper, JSONEnforcer
-from injector_provider import InjectorProvider
+from injectorfount import InjectorFount
 from serviceregistry.services import Container, Registry
 
 from meerkat.configurations.app import settings
@@ -19,7 +19,7 @@ app = create_app()
 def create_container():
     container = Container()
 
-    container.set(settings.Props.DI_PROVIDER, InjectorProvider())
+    container.set(settings.Props.DI_PROVIDER, InjectorFount())
     container.set(settings.Props.FALCON, app)
     return container
 

@@ -16,10 +16,10 @@ falcon-swagger-ui = "*"
 injector = "*"
 pipenv-to-requirements = "*"
 falcon-marshmallow = "*"
-mongoengine = "*"
 buslane = "*"
 serviceregistry = {editable = true, ref = "master", git = "https://github.com/0mars/serviceregistry.git"}
-injector-provider = {editable = true, ref = "master", git = "https://github.com/bookla-foundation/injector_provider.git"}
+injectorfount = {editable = true, ref = "master", git = "https://gitlab.com/bookla-foundation/injector-fount.git"}
+mongoengine = "*"
 
 [dev-packages]
 pytest = "*"

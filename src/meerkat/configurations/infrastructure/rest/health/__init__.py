@@ -12,15 +12,14 @@ class HealthSchema(Schema):
 
 
 class HealthCheck:
-    # Handles GET requests
     def on_get(self, req, resp):
-        """Get app health
+        """A cute furry animal endpoint.
         ---
-            summary: Check application health
-            responses:
-                200:
-                    description: status response
-                    schema: HealthSchema
+        description: Get a random pet
+        responses:
+            200:
+                description: A pet to be returned
+                schema: PetSchema
         """
         resp.status = falcon.HTTP_200
         resp.body = json.dumps({"status": resp.status, "message": "healthy"})
