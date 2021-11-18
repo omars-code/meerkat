@@ -47,7 +47,7 @@ Write
   - definitions 
   - schemas
 - configurations/di
-- configurations/rest/aggregateRoot
+- configurations/rest/resouce
 
 ## Running the app
 
